@@ -13,7 +13,7 @@ public class Passenger {
     }
 
     public void searchTrains(){
-        System.out.println(name + " searching trains");
+        System.out.println(name + " searching trains for V.02");
     }
 
     public void reserveSeat(Train train){
