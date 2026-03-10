@@ -12,6 +12,6 @@ public class Payment {
 
     public void processPayment(){
 
-        System.out.println("Payment of " + amount + " processed via " + method + " V.01");
+        System.out.println("Payment of " + amount + " processed via " + method + " V.02");
     }
 }
