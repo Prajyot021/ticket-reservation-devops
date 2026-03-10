@@ -19,7 +19,7 @@ public class Ticket {
     public void printTicket(){
 
         System.out.println("Ticket ID: " + ticketId);
-        System.out.println("Passenger: " + passenger);
+        System.out.println("Passenger V.01: " + passenger);
         System.out.println("Train: " + train);
     }
 }
