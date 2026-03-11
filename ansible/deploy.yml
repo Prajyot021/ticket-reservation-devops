@@ -1,4 +1,6 @@
 - hosts: servers
+  become: true
+
   tasks:
 
     - name: Stop old container
@@ -9,8 +11,8 @@
       command: docker rm ticket-container
       ignore_errors: yes
 
-    - name: Pull Docker Image
-      command: docker pull blanck21/ticket-reservation
+    - name: Pull latest Docker image from DockerHub
+      command: docker pull blanck21/ticket-reservation:latest
 
-    - name: Run Container
-      command: docker run -d -p 8080:8080 --name ticket-container blanck21/ticket-reservation
+    - name: Run new container
+      command: docker run -d -p 2080:2080 --name ticket-container blanck21/ticket-reservation:latest
