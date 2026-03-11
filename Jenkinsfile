@@ -4,6 +4,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "blanck21/ticket-reservation"
+        VERSION = "1.0"
     }
 
     stages {
@@ -28,7 +29,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t $IMAGE_NAME .'
+                sh "docker build -t ${IMAGE_NAME}:${VERSION}.${BUILD_NUMBER} ."
             }
         }
 
