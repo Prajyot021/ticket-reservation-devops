@@ -31,9 +31,10 @@ pipeline {
                 bat 'docker build -t ticket-reservation .'
             }
         }
-        stage('Deploy'){
-            steps{
-                bat 'ansible-playbook deploy.yml'
+
+        stage('Deploy') {
+            steps {
+                bat 'wsl ansible-playbook ansible/deploy.yml'
             }
         }
 
