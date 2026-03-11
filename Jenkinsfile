@@ -6,7 +6,7 @@ pipeline {
 
         stage('Checkout'){
             steps{
-                git 'https://github.com/Prajyot021/ticket-reservation-devops.git'
+                git branch: 'main', url: 'https://github.com/Prajyot021/ticket-reservation-devops.git'
             }
         }
 
