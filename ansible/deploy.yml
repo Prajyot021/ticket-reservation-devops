@@ -11,8 +11,8 @@
       command: docker rm ticket-container
       ignore_errors: yes
 
-    - name: Pull latest Docker image from DockerHub
+    - name: Pull latest Docker image
       command: docker pull blanck21/ticket-reservation:latest
 
-    - name: Run new container
-      command: docker run -d -p 2080:2080 --name ticket-container blanck21/ticket-reservation:latest
+    - name: Run container
+      command: docker run -d -p 2080:8080 --name ticket-container blanck21/ticket-reservation:latest
