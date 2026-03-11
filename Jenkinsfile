@@ -34,7 +34,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'wsl bash -c "ansible-playbook ansible/deploy.yml"'
+                bat 'wsl ansible-playbook ansible/deploy.yml'
             }
         }
 
