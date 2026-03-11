@@ -10,8 +10,10 @@ public class Payment {
         this.method = method;
     }
 
-    public void processPayment(){
-
+    public boolean processPayment(){
         System.out.println("Payment of " + amount + " processed via " + method + " V.02");
+
+        return true;
+
     }
 }

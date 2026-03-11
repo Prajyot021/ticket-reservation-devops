@@ -12,6 +12,10 @@ public class Passenger {
         this.address = address;
     }
 
+    public String getName(){
+        return name;
+    }
+
     public void searchTrains(){
         System.out.println(name + " searching trains for V.02");
     }
