@@ -32,6 +32,6 @@ public class Train {
 
     @Override
     public String toString(){
-        return "Train[ID=" + trainId + ", Model=" + model + "]" + " for V.05";
+        return "Train[ID=" + trainId + ", Model=" + model + "]" + " for V.06";
     }
 }
