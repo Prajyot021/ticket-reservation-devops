@@ -2,6 +2,10 @@ pipeline {
 
     agent any
 
+    environment {
+        IMAGE_NAME = "blanck21/ticket-reservation"
+    }
+
     stages {
 
         stage('Checkout') {
@@ -24,7 +28,21 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t ticket-reservation .'
+                sh 'docker build -t $IMAGE_NAME .'
+            }
+        }
+
+        stage('Docker Login') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                    sh 'echo $PASS | docker login -u $USER --password-stdin'
+                }
+            }
+        }
+
+        stage('Push Image') {
+            steps {
+                sh 'docker push $IMAGE_NAME'
             }
         }
 
