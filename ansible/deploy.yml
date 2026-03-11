@@ -1,0 +1,16 @@
+- hosts: servers
+  tasks:
+
+    - name: Stop old container
+      command: docker stop ticket-container
+      ignore_errors: yes
+
+    - name: Remove old container
+      command: docker rm ticket-container
+      ignore_errors: yes
+
+    - name: Pull Docker Image
+      command: docker pull username/ticket-reservation
+
+    - name: Run Container
+      command: docker run -d -p 8080:8080 --name ticket-container username/ticket-reservation
