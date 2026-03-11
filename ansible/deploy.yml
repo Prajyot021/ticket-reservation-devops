@@ -10,7 +10,7 @@
       ignore_errors: yes
 
     - name: Pull Docker Image
-      command: docker pull username/ticket-reservation
+      command: docker pull blanck21/ticket-reservation
 
     - name: Run Container
-      command: docker run -d -p 8080:8080 --name ticket-container username/ticket-reservation
+      command: docker run -d -p 8080:8080 --name ticket-container blanck21/ticket-reservation
