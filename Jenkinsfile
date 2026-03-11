@@ -2,10 +2,6 @@ pipeline {
 
     agent any
 
-    tools {
-        maven 'Maven'
-    }
-
     stages {
 
         stage('Checkout') {
@@ -16,25 +12,25 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'mvn clean package'
+                sh 'mvn clean package'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'mvn test'
+                sh 'mvn test'
             }
         }
 
         stage('Docker Build') {
             steps {
-                bat 'docker build -t ticket-reservation .'
+                sh 'docker build -t ticket-reservation .'
             }
         }
 
         stage('Deploy') {
             steps {
-                bat 'wsl ansible-playbook ansible/deploy.yml'
+                sh 'ansible-playbook ansible/deploy.yml'
             }
         }
 
