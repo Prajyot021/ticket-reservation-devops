@@ -6,7 +6,7 @@ pipeline {
 
         stage('Checkout'){
             steps{
-                git 'https://github.com/username/ticket-reservation-devops.git'
+                git 'https://github.com/blanck21/ticket-reservation-devops.git'
             }
         }
 
