@@ -6,7 +6,7 @@ public class Main {
 
         Train train = new Train("T101", "Express", 5);
 
-        Passenger passenger = new Passenger("John", 25, "Chennai");
+        Passenger passenger = new Passenger("Mark", 25, "Chennai");
 
         TicketClerk clerk = new TicketClerk("Alice");
 
