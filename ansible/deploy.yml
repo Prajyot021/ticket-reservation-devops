@@ -1,4 +1,5 @@
-- hosts: servers
+- hosts: localhost
+  connection: local
   tasks:
 
     - name: Stop old container
@@ -10,7 +11,7 @@
       ignore_errors: yes
 
     - name: Pull Docker Image
-      shell: docker pull blanck21/ticket-reservation
+      shell: "docker pull blanck21/ticket-reservation:{{ image_tag }}"
 
     - name: Run Container
-      shell: docker run -d -p 2080:8080 --name ticket-container blanck21/ticket-reservation
+      shell: "docker run -d -p 2080:8080 --name ticket-container blanck21/ticket-reservation:{{ image_tag }}"
