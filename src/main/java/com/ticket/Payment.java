@@ -11,7 +11,7 @@ public class Payment {
     }
 
     public boolean processPayment(){
-        System.out.println("Payment of " + amount + " processed via " + method + " V.06");
+        System.out.println("Payment of " + amount + " processed via " + method + " V.07");
 
         return true;
 
