@@ -43,15 +43,26 @@ pipeline {
 
         stage('Push Image') {
             steps {
-                sh "docker push ${IMAGE_NAME}:${VERSION}.${BUILD_NUMBER}"
+//                 sh "docker push ${IMAGE_NAME}:${VERSION}.${BUILD_NUMBER}"
+                   sh "docker push ${IMAGE_NAME}:latest"
             }
         }
+
+//         stage('Deploy') {
+//             steps {
+//                 sh "ansible-playbook -i ansible/inventory ansible/deploy.yml --extra-vars 'image_tag=${VERSION}.${BUILD_NUMBER}'"
+//             }
+//         }
 
         stage('Deploy') {
             steps {
-                sh "ansible-playbook -i ansible/inventory ansible/deploy.yml --extra-vars 'image_tag=${VERSION}.${BUILD_NUMBER}'"
+                withCredentials([string(credentialsId: 'render-api-key', variable: 'RENDER_API_KEY')]) {
+                    sh '''
+                        export RENDER_API_KEY=$RENDER_API_KEY
+                        ansible-playbook -i ansible/inventory ansible/deploy.yml
+                    '''
+                }
             }
         }
-
     }
 }
