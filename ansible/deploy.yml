@@ -2,19 +2,19 @@
 #  connection: local
 #  tasks:
 #
-    - name: Stop old container
-      shell: docker stop ticket-container
-      ignore_errors: yes
-
-    - name: Remove old container
-      shell: docker rm ticket-container
-      ignore_errors: yes
-
-    - name: Pull Docker Image
-      shell: "docker pull blanck21/ticket-reservation:{{ image_tag }}"
-
-    - name: Run Container
-      shell: "docker run -d -p 2080:8080 --name ticket-container blanck21/ticket-reservation:{{ image_tag }}"
+#    - name: Stop old container
+#      shell: docker stop ticket-container
+#      ignore_errors: yes
+#
+#    - name: Remove old container
+#      shell: docker rm ticket-container
+#      ignore_errors: yes
+#
+#    - name: Pull Docker Image
+#      shell: "docker pull blanck21/ticket-reservation:{{ image_tag }}"
+#
+#    - name: Run Container
+#      shell: "docker run -d -p 2080:8080 --name ticket-container blanck21/ticket-reservation:{{ image_tag }}"
 
 
 
@@ -31,17 +31,3 @@
         curl -X POST "https://api.render.com/v1/services/{{ render_service_id }}/deploys" \
         -H "Authorization: Bearer {{ render_api_key }}" \
         -H "Content-Type: application/json"
-
-    - name: Stop old container
-      shell: docker stop ticket-container
-      ignore_errors: yes
-
-    - name: Remove old container
-      shell: docker rm ticket-container
-      ignore_errors: yes
-
-    - name: Pull Docker Image
-      shell: "docker pull blanck21/ticket-reservation:{{ image_tag }}"
-
-    - name: Run Container
-      shell: "docker run -d -p 2080:8080 --name ticket-container blanck21/ticket-reservation:{{ image_tag }}"
