@@ -19,5 +19,12 @@ public class Main {
         if(ticket != null){
             ticket.printTicket();
         }
+        while (true) {
+            try {
+                Thread.sleep(60000); // sleep 1 minute, repeat forever
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
     }
 }
